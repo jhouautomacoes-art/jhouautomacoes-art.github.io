@@ -27,3 +27,8 @@ Botões primários escuros, filtros com estado pressionado, detalhes nativos e c
 ## Referência de revisão
 
 Aplicar `opendesign-frontend-design`, originada de `nexu-io/open-design/skills/frontend-design`: contexto, direção visual, interface funcional, acessibilidade, responsividade e revisão do resultado. Este documento define a marca do projeto.
+
+
+## Refinamento do portfólio — versão 02
+
+Estudos de caso editoriais alternam texto e interfaces reconstruídas. Hierarquia: número e área, problema concreto, construção, uso, funções e fluxo expansível. Fundos verdes distintos individualizam dados, OCR, conferência, desktop e mobile. Demonstrações ficam explicitamente identificadas, sem métricas comerciais inventadas. Ícone J original no cabeçalho e interfaces; logo original com transparência no rodapé claro para manter legível seu texto preto. Grades colapsam em uma coluna no celular, controles usam seleção semântica e todos os fluxos são locais.
