@@ -21,3 +21,8 @@ A fotografia, o PNG com canal alfa e `jhou-mark.ico` são materiais pessoais ori
 ## Prévia local
 
 Sirva a pasta com `python -m http.server 8768 --bind 127.0.0.1`. O contato abre o aplicativo de e-mail do visitante.
+
+
+## Entrada de pedidos
+
+Dialog acessível com validação, prévia, mailto e download JSON. O visitante envia o e-mail; não há backend, envio automático, analytics ou armazenamento no site. IA e avaliação de escopo são informadas. A importação local é validada por comercial.py e não libera contatos, execução, preços ou contratos.

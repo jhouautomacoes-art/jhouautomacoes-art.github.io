@@ -39,3 +39,8 @@ Cinco projetos apresentam funções verificadas de ferramentas desenvolvidas pel
 ## Implementação
 
 HTML, CSS, SVG e JavaScript nativos; sem dependências de build ou scripts de terceiros. Google Fonts com fallback local. A skill OpenDesign frontend-design orienta a composição e a revisão. Contato por mailto, sem formulário, analytics ou backend de coleta.
+
+
+## Entrada de pedidos
+
+Dialog acessível com validação, prévia, mailto e download JSON. O visitante envia o e-mail; não há backend, envio automático, analytics ou armazenamento no site. IA e avaliação de escopo são informadas. A importação local é validada por comercial.py e não libera contatos, execução, preços ou contratos.
