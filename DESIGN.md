@@ -2,33 +2,40 @@
 
 ## Direção
 
-Portfólio pessoal editorial, sereno e técnico. A fotografia real é a âncora humana; o verde conecta a identidade à ideia de progresso. Hierarquia clara, espaço generoso e exemplos visuais construídos com HTML/CSS.
+Portfólio pessoal com uma galeria horizontal de software. Fotografia real, marca pessoal original e paleta verde. O palco escuro cria contraste com o restante da apresentação em papel claro. Interfaces vetoriais em perspectiva representam dados, OCR, fluxos, camadas de aplicação e uso mobile.
 
-## Cores
+## Cores e tipografia
 
-- Grafite floresta: `#17392d`, textos, ações e seção de apresentação.
-- Papel: `#f4f5ed`, fundo principal.
-- Verde claro: `#c6eb85`, faixa de especialidades e contato.
-- Verde de títulos: `#568743`.
-- Texto secundário: `#5b685e`; divisores: `#d9ded3`.
-
-## Tipografia
-
-Manrope nos títulos; DM Sans no conteúdo. Fallback Arial. Títulos grandes com entrelinha curta, corpo legível e no máximo dois estilos tipográficos.
+- Papel: #f4f5ed.
+- Texto e apresentação: #17392d.
+- Palco do portfólio: #0e281f.
+- Acento verde: #c6eb85.
+- Cartão claro: #c6dfaa.
+- Texto secundário claro: #9db68c; texto secundário no papel: #5b685e.
+- Manrope nos títulos e DM Sans no conteúdo, com fallback Arial.
 
 ## Layout
 
-Conteúdo limitado a 1280px, hero em duas colunas e projetos em grade. Até 760px: coluna única, menu expansível e processo em duas colunas. Respeitar movimento reduzido, foco visível e leitura por teclado.
+Conteúdo limitado a 1280px. Hero em duas colunas, galeria de projetos em uma única faixa horizontal. Um projeto ocupa a maior parte do palco; o próximo fica parcialmente visível com um fade na borda. A galeria permanece horizontal no celular. A apresentação completa abre em dialog nativo, com duas colunas no desktop e uma no celular. Projeto aberto não aumenta a altura da página principal.
 
-## Componentes e conteúdo
+## Componentes e estados
 
-Botões primários escuros, filtros com estado pressionado, detalhes nativos e contato por e-mail. Sem formulário, checkout, analytics ou números de resultados comerciais inventados. Miniaturas são explicitamente ilustrativas. Somente nome, foto e marca pessoais; clientes e aplicativos dos exemplos permanecem anônimos.
+- Filtros atualizam cards, posição e índice de projetos.
+- Arraste com mouse, swipe nativo, setas, teclado e índice direto.
+- Posição anunciada e setas desativadas nos limites.
+- Arrastar não abre o card por acidente.
+- Janela de detalhes com fechamento por botão, Escape e fundo externo; navegação respeita o filtro ativo.
+- Foco retorna ao card e a rolagem do corpo é restaurada após fechamento.
+- Simulação de laboratório com estados aguardando, em execução e concluído; reiniciar/fechar cancela timers.
 
-## Referência de revisão
+## Movimento e acessibilidade
 
-Aplicar `opendesign-frontend-design`, originada de `nexu-io/open-design/skills/frontend-design`: contexto, direção visual, interface funcional, acessibilidade, responsividade e revisão do resultado. Este documento define a marca do projeto.
+Perspectiva e transições de camadas, gráficos, leitura OCR e fluxo de dados. Foco visível, controles nativos e movimento reduzido respeitado. A animação não carrega informação exclusiva: todas as funções também são descritas em texto.
 
+## Conteúdo e identidade
 
-## Refinamento do portfólio — versão 02
+Cinco projetos apresentam funções verificadas de ferramentas desenvolvidas pelo titular. O laboratório de orquestração é identificado como estudo conceitual, com arquitetura proposta e simulação local. Interfaces e dados são ilustrativos. Sem nomes de empresas, aplicativos internos, clientes, depoimentos, implantações ou métricas comerciais inventadas. A foto, o PNG com transparência e o ícone J são originais do titular. Endereço e telefone permanecem privados.
 
-Estudos de caso editoriais alternam texto e interfaces reconstruídas. Hierarquia: número e área, problema concreto, construção, uso, funções e fluxo expansível. Fundos verdes distintos individualizam dados, OCR, conferência, desktop e mobile. Demonstrações ficam explicitamente identificadas, sem métricas comerciais inventadas. Ícone J original no cabeçalho e interfaces; logo original com transparência no rodapé claro para manter legível seu texto preto. Grades colapsam em uma coluna no celular, controles usam seleção semântica e todos os fluxos são locais.
+## Implementação
+
+HTML, CSS, SVG e JavaScript nativos; sem dependências de build ou scripts de terceiros. Google Fonts com fallback local. A skill OpenDesign frontend-design orienta a composição e a revisão. Contato por mailto, sem formulário, analytics ou backend de coleta.

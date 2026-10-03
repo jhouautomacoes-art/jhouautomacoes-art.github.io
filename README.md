@@ -1,21 +1,23 @@
 # Jhou Automações
 
-Portfólio estático de Jhonata Machado. HTML, CSS e JavaScript, sem dependências de build.
+Portfólio pessoal de Jhonata Machado. HTML, CSS, SVG e JavaScript, sem dependências de build.
 
 ## Publicação
 
-Publique a raiz deste repositório pelo GitHub Pages (branch `main`, diretório `/`). Os caminhos relativos também permitem um site de projeto.
+GitHub Pages: branch `main`, diretório `/`. Arquivos CSS/JS usam revisão na URL para atualização de cache.
 
-## Conteúdo
+## Apresentação
 
-As interfaces ilustrativas usam dados fictícios. Nenhum nome de cliente, aplicativo interno, arquivo operacional ou código dos projetos apresentados integra este repositório.
+Galeria horizontal no desktop e celular: arraste com mouse, swipe, setas, teclado e índice direto. Filtros atualizam os projetos e a navegação. Detalhes em dialog nativo com Escape, fechamento, navegação e restauração do foco. Arrastar não abre o card por acidente.
 
-A fotografia e o logo são materiais pessoais fornecidos pelo titular para esta apresentação. O ícone pessoal J (`jhou-mark.ico`) é o original utilizado pelo titular em suas ferramentas. O logo PNG preserva seu canal alfa, sem painel branco no CSS. A fonte usa Google Fonts, com fallback local; não há analytics, cookies ou formulário de coleta.
+As demonstrações de indicadores, OCR, conferência, módulos e orquestração rodam localmente no navegador. Não consultam fontes externas, enviam contatos ou executam sistemas de clientes.
+
+## Conteúdo e marca
+
+Cinco projetos refletem funções verificadas. Um sexto é identificado como estudo conceitual; não é apresentado como uma implantação em cliente. Interfaces e dados fictícios preservam a identidade dos clientes. Nenhum arquivo operacional, código dos projetos originais ou nome de aplicativo interno integra este repositório.
+
+A fotografia, o PNG com canal alfa e `jhou-mark.ico` são materiais pessoais originais do titular. O logo no rodapé tem fundo CSS transparente. Google Fonts tem fallback Arial. Sem analytics, cookies ou formulário de coleta.
 
 ## Prévia local
 
-Abra `index.html` ou sirva a pasta com `python -m http.server 8768 --bind 127.0.0.1`. O contato abre o aplicativo de e-mail do visitante.
-
-## Portfólio 02
-
-Cinco estudos de caso com problema, construção, uso e fluxo. Demonstrações locais de período, texto OCR, conferência e módulos usam exclusivamente dados fictícios. Não fazem consultas, envios ou operações externas.
+Sirva a pasta com `python -m http.server 8768 --bind 127.0.0.1`. O contato abre o aplicativo de e-mail do visitante.
