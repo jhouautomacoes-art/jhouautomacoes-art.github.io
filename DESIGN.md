@@ -1,37 +1,32 @@
-# Jhou Automações — sistema visual
+# Jhou Automações — direção visual
 
-## Direção e identidade
+## Marca
 
-Jhou Automações é a marca pessoal de Jhonata Machado, desenvolvedor solo da Zona Sul de Porto Alegre. A apresentação usa primeira pessoa, fotografia real, ícone J e logo originais. A experiência descrita inclui escritórios de advocacia, lancherias, supermercados e automações pontuais. Os slides são exemplos do que ele pode criar, com dados fictícios; não apresentam clientes, implantações ou resultados inventados.
+Jhou Automações é a marca pessoal de Jhonata Machado, desenvolvedor solo da Zona Sul de Porto Alegre. Foto, logo transparente e ícone J originais. Texto em primeira pessoa. Os exemplos apresentam capacidades possíveis, sem inventar clientes, implantações ou resultados.
 
-## Cores e tipografia
+## Base
 
-- Papel: #f4f5ed; texto: #17392d.
-- Palco das soluções: #102e23; cards: #163829.
-- Acento: #c6eb85; demonstrações: #f5f7ee.
-- Manrope nos títulos e DM Sans no conteúdo, com fallback Arial.
+Papel #f4f5ed, texto #17392d, palco #102e23, acento #c6eb85. Manrope nos títulos e DM Sans no conteúdo, com fallback Arial. A galeria horizontal permanece o centro da apresentação.
 
-## Composição
+## Seis direções de interface
 
-Hero em duas colunas, galeria horizontal com um exemplo por vez e uma pequena prévia do próximo. Cada slide combina situação concreta, funções, formatos possíveis e uma interface demonstrativa. A galeria continua horizontal no celular; o texto e a interface do slide ativo passam a uma coluna. A foto e o logo permanecem originais; o rodapé preserva o fundo transparente do PNG.
+1. Lancheria: tela escura de cozinha e comandas em papel quente, com entrada, preparo e retirada. A observação acompanha o pedido.
+2. Clínica: agenda calma em verde azulado, faixa de dias, horário livre e lista de espera. Encaixe é uma decisão administrativa da recepção.
+3. Oficina: registro industrial em grafite, orçamento em papel e linha de etapas. A aprovação precede o serviço.
+4. Comércio: mesa de compras em oliva, cobertura em dias, saída média, saldo e sugestão de quantidade. Valores são fictícios.
+5. Escritório: fonte documental em papel anotado, campo pendente e prévia da tabela conferida. Todos os campos são preparados; nenhum PDF real é processado.
+6. Trabalho em campo: app Android ilustrado em aparelho escuro, checklist, fila local simulada e painel de destino. Sem APK ou sincronização real.
 
-## Seis exemplos
+Cada conceito tem composição, cores e controles próprios. Elementos de software são HTML/CSS, evitando imagens que imitariam controles. A marca verde une as apresentações sem apagar suas diferenças.
 
-1. Lancherias: pedidos e etapas da cozinha.
-2. Atendimentos: agenda e confirmação administrativa de horários.
-3. Oficinas: ordens de serviço e acompanhamento de etapas.
-4. Comércio: estoque mínimo e lista de reposição.
-5. Escritórios: busca em campos de um documento fictício.
-6. Android: tarefas e checklist em uma interface de celular.
+## Interações e layout
 
-Os controles alteram apenas os exemplos na memória da página. A demonstração de documentos usa campos preparados, sem leitura real de PDF; o exemplo Android é uma interface web, sem instalar um aplicativo. Adicionar à reposição altera uma lista fictícia, sem realizar compras.
+Galeria com arraste real de mouse, swipe nativo, setas, teclado (Home/End e setas) e categorias. Altura acompanha o slide ativo e seus estados, evitando espaços herdados do maior exemplo. No celular, a cozinha usa abas por etapa. As demais interfaces reorganizam seus controles em uma coluna.
 
-## Navegação e acessibilidade
+Foco visível, controles nativos, estados ativos/desativados, slides inativos com inert e respeito a movimento reduzido. Restauração individual reinicia cada cenário. Sem timers, analytics, envio automático, armazenamento persistente ou acesso a clientes.
 
-Arraste com mouse, swipe nativo, setas, teclado (setas, Home e End) e botões de categoria. Posição anunciada, categoria ativa marcada e setas desativadas nos limites. Slides fora de foco recebem inert. Controles nativos, rótulos explícitos, foco visível, restauração individual dos exemplos e respeito a movimento reduzido.
+## Arquivos
 
-## Implementação e contato
+style.css e site.js mantêm a página e o menu; solucoes.css organiza a galeria; cenarios.css define as seis aparências; solucoes.js implementa estados e navegação. O formulário de pedido existente continua com validação, revisão, mailto e download JSON.
 
-HTML, CSS e JavaScript nativos, sem build. solucoes.css e solucoes.js concentram a nova galeria; site.js mantém menu e ano. Google Fonts tem fallback local. Contatos públicos autorizados: jhouautomacoes@gmail.com e WhatsApp (51) 98417-0069. Sem analytics, envio automático ou backend de coleta.
-
-O dialog de pedido permanece com validação, prévia, mailto e download JSON. O visitante decide o envio no próprio aplicativo de e-mail. A skill OpenDesign frontend-design orienta a composição e a verificação visual.
+Contato público autorizado: jhouautomacoes@gmail.com e (51) 98417-0069.
