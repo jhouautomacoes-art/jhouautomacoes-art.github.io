@@ -1,28 +1,25 @@
 # Jhou Automações
 
-Portfólio pessoal de Jhonata Machado. HTML, CSS, SVG e JavaScript, sem dependências de build.
+Site pessoal de Jhonata Machado, desenvolvedor solo. Jhou Automações é sua marca pessoal.
 
 ## Publicação
 
-GitHub Pages: branch `main`, diretório `/`. Arquivos CSS/JS usam revisão na URL para atualização de cache.
+GitHub Pages, branch main, diretório raiz: https://jhouautomacoes-art.github.io/. HTML, CSS e JavaScript nativos, sem dependências de build. As URLs de CSS/JS identificam a revisão para atualizar o cache.
 
-## Apresentação
+## Galeria de soluções
 
-Galeria horizontal no desktop e celular: arraste com mouse, swipe, setas, teclado e índice direto. Filtros atualizam os projetos e a navegação. Detalhes em dialog nativo com Escape, fechamento, navegação e restauração do foco. Arrastar não abre o card por acidente.
+Seis exemplos do que Jhonata pode desenvolver: pedidos de lancheria, agenda de atendimentos, ordens de serviço, estoque e reposição, documentos de escritórios e rotina no Android. Cada slide descreve funções concretas e oferece uma demonstração com dados fictícios.
 
-As demonstrações de indicadores, OCR, conferência, módulos e orquestração rodam localmente no navegador. Não consultam fontes externas, enviam contatos ou executam sistemas de clientes.
+Navegação horizontal no computador e celular: mouse, swipe, setas, teclado e categorias. As demonstrações atualizam etapas, confirmações, listas e tarefas apenas na memória do navegador. A busca de documentos pesquisa campos preparados; não processa PDFs reais. A interface Android não instala um APK. Restaurar exemplo reinicia cada demonstração.
 
-## Conteúdo e marca
+## Marca e contato
 
-Cinco projetos refletem funções verificadas. Um sexto é identificado como estudo conceitual; não é apresentado como uma implantação em cliente. Interfaces e dados fictícios preservam a identidade dos clientes. Nenhum arquivo operacional, código dos projetos originais ou nome de aplicativo interno integra este repositório.
-
-A fotografia, o PNG com canal alfa e `jhou-mark.ico` são materiais pessoais originais do titular. O logo no rodapé tem fundo CSS transparente. Google Fonts tem fallback Arial. Sem analytics, cookies ou formulário de coleta.
+Foto, PNG transparente e ícone J originais do titular. Conteúdo em primeira pessoa, sem apresentar empresa, equipe ou clientes inventados. Contatos públicos autorizados: jhouautomacoes@gmail.com e https://wa.me/5551984170069.
 
 ## Prévia local
 
-Sirva a pasta com `python -m http.server 8768 --bind 127.0.0.1`. O contato abre o aplicativo de e-mail do visitante.
-
+Sirva somente esta pasta com python -m http.server 8821 --bind 127.0.0.1. Acesse http://127.0.0.1:8821/#projetos.
 
 ## Entrada de pedidos
 
-Dialog acessível com validação, prévia, mailto e download JSON. O visitante envia o e-mail; não há backend, envio automático, analytics ou armazenamento no site. IA e avaliação de escopo são informadas. A importação local é validada por comercial.py e não libera contatos, execução, preços ou contratos.
+Dialog com validação, prévia, mailto e download JSON. O visitante decide o envio no próprio aplicativo de e-mail. Sem envio automático, backend, analytics ou armazenamento de pedidos no site. A avaliação de escopo permanece no formulário.
