@@ -4,7 +4,7 @@ Site pessoal de Jhonata Machado, desenvolvedor solo. Jhou Automações é sua ma
 
 ## Publicação
 
-GitHub Pages, branch main e diretório raiz: https://jhouautomacoes-art.github.io/. HTML, CSS e JavaScript nativos, sem build. As URLs dos estilos e scripts identificam a revisão.
+GitHub Pages em https://jhouautomacoes-art.github.io/, com origem GitHub Actions e código na branch main. O workflow `.github/workflows/previas-pages.yml` monta somente os arquivos públicos e publica o site após alterações. HTML, CSS e JavaScript continuam nativos. As URLs dos estilos e scripts identificam a revisão.
 
 ## Cenários interativos
 
@@ -32,3 +32,13 @@ Sirva somente esta pasta com python -m http.server 8821 --bind 127.0.0.1 e acess
 ## Pedidos
 
 Formulário existente com validação, prévia, mailto e download JSON. O visitante revisa e decide o envio no seu aplicativo de e-mail. Sem envio automático, backend ou armazenamento de pedidos no site.
+
+## Prévias temporárias
+
+`previas.html?amostra=ID` apresenta somente uma amostra ativa do registro reutilizável. A primeira demonstração organiza um pedido de uniformes com dados fictícios, sem assumir o fluxo interno do negócio. Layout editorial, marca Jhou, formulário e resumo responsivos.
+
+Cada registro dura no máximo 72 horas a partir da criação. O navegador bloqueia a exibição ao vencer; a limpeza no GitHub remove registros vencidos e publica o site atualizado a cada hora, no minuto 17, sem depender do computador local. Tarefas agendadas do GitHub podem atrasar e são desativadas depois de 60 dias sem atividade. Não existe garantia de exclusão física no segundo exato; commits antigos e cópias já baixadas continuam existindo. O controle limita as amostras ativas e reaproveita arquivos, sem reescrever histórico.
+
+Para preparar uma nova amostra de uniformes: `python scripts/previas.py add --id ID-NOVO --title "Ideia ilustrativa para o negócio" --hours 72`, seguido de revisão e publicação da alteração. Use identificadores novos e somente informações públicas/dados fictícios. O limite é 20 registros; outros modelos de interface precisam de desenvolvimento e testes próprios. O script não envia e-mails ou aceita trabalho de cliente.
+
+Validação: `python -m unittest discover -s tests -v` e `python scripts/previas.py check`. A publicação inclui apenas assets rastreados no Git. Scripts, testes e arquivos locais sem rastreamento não entram no site.
