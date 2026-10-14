@@ -16,6 +16,15 @@ def document(records):
     return '<!doctype html><h1>Site preservado</h1>'+START+json.dumps(records)+END+'<footer>Marca</footer>'
 
 class PreviewLifecycleTests(unittest.TestCase):
+    def test_business_templates_keep_expiry_and_registry_limits(self):
+        for template in ['grafica', 'locacao', 'recepcao']:
+            with self.subTest(template=template):
+                html=document([dict(sample(),template=template)])
+                self.assertEqual(cleanup(html,BASE+dt.timedelta(hours=71))[1],0)
+                self.assertEqual(cleanup(html,BASE+dt.timedelta(hours=72))[1],1)
+                with self.assertRaises(ValueError):
+                    split_registry(document([dict(sample(hours=73),template=template)]))
+
     def test_service_template_is_supported_and_expires_under_same_limits(self):
         entry=dict(sample(),template='servicos')
         cleaned,removed=cleanup(document([entry]),BASE+dt.timedelta(hours=72))
