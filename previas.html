@@ -8,9 +8,10 @@
 [hidden]{display:none!important}.sample-notice{border-left:3px solid var(--green);background:var(--white);padding:15px 18px;margin:0 0 22px;font-size:13px}.sample-notice p{margin:6px 0;color:var(--muted)}.sample-notice strong{color:var(--green)}.expiry{font:11px/1.6 monospace;color:var(--green)}#expired{min-height:60vh;padding:60px 0;max-width:800px}#expired a{color:var(--green)}.contact-line{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0 25px}.contact-line a{background:var(--green);color:white;padding:12px 18px;text-decoration:none;font-weight:bold;border-radius:3px}@media(max-width:720px){.contact-line{display:block}.contact-line a{display:inline-block;margin-top:12px}}
 </style>
 <link rel="stylesheet" href="servicos.css?v=20261014">
+<link rel="stylesheet" href="negocios.css?v=20261014-2">
 </head>
 <body>
-<script type="application/json" id="samples-data">[{"id":"artic-uniformes-20261013","title":"Uma ideia para a Artic Uniformes","template":"uniformes","created_at":"2026-10-13T21:51:04+00:00","expires_at":"2026-10-16T21:51:04+00:00"},{"id":"agiair-servicos-20261014","title":"Uma ideia de operação para a AgiAir","template":"servicos","created_at":"2026-10-14T11:55:07+00:00","expires_at":"2026-10-17T11:55:07+00:00"}]</script>
+<script type="application/json" id="samples-data">[{"id":"artic-uniformes-20261013","title":"Uma ideia para a Artic Uniformes","template":"uniformes","created_at":"2026-10-13T21:51:04+00:00","expires_at":"2026-10-16T21:51:04+00:00"},{"id":"agiair-servicos-20261014","title":"Uma ideia de operação para a AgiAir","template":"servicos","created_at":"2026-10-14T11:55:07+00:00","expires_at":"2026-10-17T11:55:07+00:00"},{"id":"fk-grafica-20261014","title":"Uma ideia para a F&K Gráfica","template":"grafica","created_at":"2026-10-14T15:53:56+00:00","expires_at":"2026-10-17T15:53:56+00:00"},{"id":"rodrigues-locacoes-20261014","title":"Uma ideia para a Rodrigues Soluções","template":"locacao","created_at":"2026-10-14T15:53:56+00:00","expires_at":"2026-10-17T15:53:56+00:00"},{"id":"recepcao-ideia-20261014","title":"Uma ideia para organizar a recepção","template":"recepcao","created_at":"2026-10-14T15:53:56+00:00","expires_at":"2026-10-17T15:53:56+00:00"}]</script>
 <header><img src="jhou-logo.png" alt="Jhou Automações"><span>Ideia ilustrativa<br>Amostra temporária</span></header>
 <main id="expired" hidden><div class="eyebrow">Jhou Automações / Prévia temporária</div><h1>Esta prévia foi encerrada.</h1><p>As amostras ficam disponíveis por até 72 horas. Este endereço não apresenta mais uma demonstração ativa.</p><p><a href="https://jhouautomacoes-art.github.io/">Conheça o trabalho de Jhonata ↗</a></p><div class="contact-line"><span>Quer conversar sobre esta ideia ou outra necessidade?</span><a href="https://wa.me/5551984170069" target="_blank" rel="noopener">Fale com Jhonata ↗</a></div></main>
 <main id="demo" hidden><section class="intro"><div class="eyebrow">Do pedido ao orçamento</div><h1>Um pedido claro.<br><em>Uma conversa mais simples.</em></h1><p>Peças, cores, tamanhos e personalização no mesmo resumo. Um exemplo de como organizar a solicitação antes de cotar.</p></section>
@@ -41,13 +42,22 @@
   <div style="font-size:11px;color:#68756d"><a href="https://jhouautomacoes-art.github.io/">Conheça a Jhou Automações ↗</a> · Marca pessoal de Jhonata, da Zona Sul de Porto Alegre</div>
 </section>
 
+<main id="business-demo" hidden>
+  <section class="n-notice" aria-label="Sobre esta ideia"><div><strong id="n-sample-title"></strong><p>Demonstração independente da Jhou Automações, com dados fictícios. É uma ideia informativa: ainda não conheço o fluxo do negócio. Etapas, recursos e horários precisam de avaliação antes de um projeto real.</p></div><small id="n-expiry"></small></section>
+  <div class="n-shell">
+    <aside class="n-rail"><div class="n-brand"><img src="j.svg" alt=""><div><b id="n-app-title"></b><small>JHOU / AMOSTRA</small></div></div><nav id="n-nav" aria-label="Navegação da demonstração"></nav><div class="n-rail-bottom"><span>DADOS FICTÍCIOS<br>ESTADO SOMENTE NESTA PÁGINA</span><button type="button" data-n-action="reset">Restaurar amostra ↺</button></div></aside>
+    <section class="n-main"><div class="n-toolbar"><h1 id="n-heading" tabindex="-1"></h1><span>EXPERIMENTE / SEM ENVIO REAL</span></div><div id="n-content"></div><p id="n-status" class="n-status" role="status" tabindex="-1"></p></section>
+    <aside id="n-detail" class="n-detail" aria-label="Registro em foco"></aside>
+  </div>
+  <div class="n-footer"><p>Sem login real, envio, integração, análise de arquivos, produção ou reserva. Não é prontuário, contrato ou inspeção técnica. Recarregar restaura a amostra. Soluções Windows, Android ou web dependem de escopo.</p><a href="https://wa.me/5551984170069" target="_blank" rel="noopener">Conversar com Jhonata ↗</a></div>
+</main>
 <footer><span>Jhonata Machado · Desenvolvedor solo · Porto Alegre</span><a href="https://jhouautomacoes-art.github.io/" target="_blank" rel="noopener">Conheça a Jhou Automações ↗</a></footer>
 <script>
 'use strict';
 const sizes=['PP','P','M','G','GG'];
 let activeSample=null,deadlineMs=0,startWall=Date.now(),startMono=performance.now();
 function wallNow(){return Math.max(Date.now(),startWall+(performance.now()-startMono));}
-function expire(){activeSample=null;document.getElementById('service-demo').hidden=true;document.body.classList.remove('has-service');document.dispatchEvent(new Event('sample-expired'));document.getElementById('demo').hidden=true;document.getElementById('expired').hidden=false;document.getElementById('order').reset();document.getElementById('summary').textContent='';document.getElementById('copy').disabled=true;document.getElementById('sample-title').textContent='';}
+function expire(){activeSample=null;document.getElementById('service-demo').hidden=true;document.getElementById('business-demo').hidden=true;document.body.classList.remove('has-service');document.dispatchEvent(new Event('sample-expired'));document.getElementById('demo').hidden=true;document.getElementById('expired').hidden=false;document.getElementById('order').reset();document.getElementById('summary').textContent='';document.getElementById('copy').disabled=true;document.getElementById('sample-title').textContent='';}
 function active(){if(!activeSample||wallNow()>=deadlineMs){expire();return false;}return true;}
 
 const el=id=>document.getElementById(id);let reviewed='';
@@ -65,7 +75,7 @@ try {
  const matches=registry.filter(s=>s.id===requested);
  if(matches.length!==1)throw Error('Unknown sample');
  const sample=matches[0],created=Date.parse(sample.created_at),expires=Date.parse(sample.expires_at);
- if(!['uniformes','servicos'].includes(sample.template)||!Number.isFinite(created)||!Number.isFinite(expires)||expires<=created||expires-created>72*3600000||wallNow()<created||wallNow()>=expires)throw Error('Unavailable');
+ if(!['uniformes','servicos','grafica','locacao','recepcao'].includes(sample.template)||!Number.isFinite(created)||!Number.isFinite(expires)||expires<=created||expires-created>72*3600000||wallNow()<created||wallNow()>=expires)throw Error('Unavailable');
  activeSample=sample;deadlineMs=Math.min(expires,created+72*3600000);
  document.getElementById('sample-title').textContent=sample.title;
  const date=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'}).format(deadlineMs);
@@ -74,6 +84,10 @@ try {
   document.getElementById('service-demo').hidden=false;document.body.classList.add('has-service');
   document.getElementById('s-sample-title').textContent=sample.title;
   document.getElementById('s-expiry').textContent='Amostra temporária · até '+date+' (Porto Alegre). Máximo 72h.';
+ }else if(['grafica','locacao','recepcao'].includes(sample.template)){
+  const business=document.getElementById('business-demo');business.dataset.template=sample.template;business.hidden=false;
+  document.getElementById('n-sample-title').textContent=sample.title;
+  document.getElementById('n-expiry').textContent='Até '+date+' (Porto Alegre)\nPrazo máximo de 72h';
  }else document.getElementById('demo').hidden=false;
  setTimeout(expire,Math.max(0,deadlineMs-wallNow()));
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)active();});
@@ -83,4 +97,6 @@ try {
 </script>
 <script src="servicos-model.js?v=20261014"></script>
 <script src="servicos-ui.js?v=20261014"></script>
+<script src="negocios-model.js?v=20261014-2"></script>
+<script src="negocios-ui.js?v=20261014-2"></script>
 </body></html>
