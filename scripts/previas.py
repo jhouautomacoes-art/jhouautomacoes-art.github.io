@@ -25,7 +25,7 @@ def valid_sample(sample):
         raise ValueError('Unexpected sample fields')
     if not re.fullmatch(r'[a-z0-9-]{4,64}', sample['id']):
         raise ValueError('Invalid sample id')
-    if sample['template'] != 'uniformes' or not isinstance(sample['title'], str) or not 1 <= len(sample['title']) <= 90:
+    if sample['template'] not in {'uniformes', 'servicos'} or not isinstance(sample['title'], str) or not 1 <= len(sample['title']) <= 90:
         raise ValueError('Invalid sample template/title')
     created, expires = instant(sample['created_at']), instant(sample['expires_at'])
     if not dt.timedelta(0) < expires-created <= dt.timedelta(hours=MAX_HOURS):
@@ -88,6 +88,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('action', choices=['check', 'clean', 'build', 'add'])
     p.add_argument('--id'); p.add_argument('--title')
+    p.add_argument('--template', choices=['uniformes', 'servicos'], default='uniformes')
     p.add_argument('--hours', type=int, default=72)
     a=p.parse_args()
     path=ROOT/'previas.html'
@@ -106,7 +107,7 @@ def main():
         if any(s['id']==a.id for s in samples):
             raise ValueError('Never overwrite/reuse an existing link id')
         if len(active)>=MAX_SAMPLES: raise ValueError('Sample limit reached')
-        sample={'id':a.id,'title':a.title,'template':'uniformes',
+        sample={'id':a.id,'title':a.title,'template':a.template,
                 'created_at':current.isoformat(timespec='seconds'),
                 'expires_at':(current+dt.timedelta(hours=a.hours)).isoformat(timespec='seconds')}
         valid_sample(sample); active.append(sample); changed=update_registry(changed,active)
