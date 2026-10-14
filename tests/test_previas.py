@@ -16,6 +16,15 @@ def document(records):
     return '<!doctype html><h1>Site preservado</h1>'+START+json.dumps(records)+END+'<footer>Marca</footer>'
 
 class PreviewLifecycleTests(unittest.TestCase):
+    def test_service_template_is_supported_and_expires_under_same_limits(self):
+        entry=dict(sample(),template='servicos')
+        cleaned,removed=cleanup(document([entry]),BASE+dt.timedelta(hours=72))
+        self.assertEqual(removed,1);self.assertEqual(split_registry(cleaned)[1],[])
+
+    def test_unknown_template_is_rejected(self):
+        with self.assertRaisesRegex(ValueError,'template'):
+            split_registry(document([dict(sample(),template='external')]))
+
     def test_active_just_before_72_hours_is_preserved(self):
         cleaned,removed=cleanup(document([sample()]),BASE+dt.timedelta(hours=72)-dt.timedelta(seconds=1))
         self.assertEqual(removed,0); self.assertEqual(len(split_registry(cleaned)[1]),1)
