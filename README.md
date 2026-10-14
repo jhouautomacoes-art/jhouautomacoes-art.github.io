@@ -41,4 +41,10 @@ Cada registro dura no máximo 72 horas a partir da criação. O navegador bloque
 
 Para preparar uma nova amostra de uniformes: `python scripts/previas.py add --id ID-NOVO --title "Ideia ilustrativa para o negócio" --hours 72`, seguido de revisão e publicação da alteração. Use identificadores novos e somente informações públicas/dados fictícios. O limite é 20 registros; outros modelos de interface precisam de desenvolvimento e testes próprios. O script não envia e-mails ou aceita trabalho de cliente.
 
-Validação: `python -m unittest discover -s tests -v` e `python scripts/previas.py check`. A publicação inclui apenas assets rastreados no Git. Scripts, testes e arquivos locais sem rastreamento não entram no site.
+Validação: `python -m unittest discover -s tests -v`, `node --test tests/test_service_model.cjs` e `python scripts/previas.py check`. A publicação inclui apenas assets rastreados no Git. Scripts, testes e arquivos locais sem rastreamento não entram no site.
+
+### Central de serviços (14/10/2026)
+
+Novo modelo `servicos`: agenda com bloqueio de conflito, ordens de serviço com etapas, checklist administrativo, histórico por equipamento, indicadores e visão demonstrativa do cliente. Exporta um relatório TXT após concluir os registros. Dados fictícios somente na memória; sem backend, login real, laudo, integração ou envio. Recarregar ou restaurar reinicia a amostra.
+
+Para usar o novo modelo: `python scripts/previas.py add --id ID-NOVO --title "Ideia para o negócio" --template servicos --hours 72`. Mantém o mesmo limite total de20 e o mesmo vencimento; a amostra anterior de uniformes conserva seu endereço e prazo. O renderizador compartilhado não é apagado junto de cada registro. Documentação visual em DESIGN-servicos.md.
