@@ -13,7 +13,7 @@ START = '<script type="application/json" id="samples-data">'
 END = '</script>'
 MAX_HOURS = 72
 MAX_SAMPLES = 20
-TEMPLATES = {'uniformes', 'servicos', 'grafica', 'locacao', 'recepcao'}
+TEMPLATES = {'uniformes', 'servicos', 'grafica', 'locacao', 'recepcao', 'pedra', 'oficina', 'impressoras'}
 
 def instant(value):
     value = dt.datetime.fromisoformat(value.replace('Z', '+00:00'))
