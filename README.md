@@ -48,3 +48,9 @@ Validação: `python -m unittest discover -s tests -v`, `node --test tests/test_
 Novo modelo `servicos`: agenda com bloqueio de conflito, ordens de serviço com etapas, checklist administrativo, histórico por equipamento, indicadores e visão demonstrativa do cliente. Exporta um relatório TXT após concluir os registros. Dados fictícios somente na memória; sem backend, login real, laudo, integração ou envio. Recarregar ou restaurar reinicia a amostra.
 
 Para usar o novo modelo: `python scripts/previas.py add --id ID-NOVO --title "Ideia para o negócio" --template servicos --hours 72`. Mantém o mesmo limite total de20 e o mesmo vencimento; a amostra anterior de uniformes conserva seu endereço e prazo. O renderizador compartilhado não é apagado junto de cada registro. Documentação visual em DESIGN-servicos.md.
+
+### Três fluxos de negócio (14/10/2026)
+
+Novos modelos próprios: `grafica` (briefing, versão de prova, conferências, conflito de linha e quantidade produzida), `locacao` (disponibilidade por intervalo, reserva, saída, retorno e conferência administrativa) e `recepcao` (solicitação fictícia, conflito de sala/equipe, confirmação, chegada e cancelamento). As três telas usam o mesmo registro em todas as visões e permitem baixar TXT apenas após concluir o fluxo. Não há envio, dados de clientes, produção, reserva real, prontuário ou inspeção técnica. Visual e escopo em DESIGN-negocios.md.
+
+Criar um registro com `python scripts/previas.py add --id ID-NOVO --title "Ideia informativa" --template grafica --hours 72` (troque o modelo conforme o segmento), testar `python -m unittest discover -s tests -v` e `node --test tests/test_service_model.cjs tests/test_business_model.cjs`. O registro continua limitado a20 amostras e até72h; não reusar IDs.
