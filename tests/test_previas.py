@@ -17,7 +17,7 @@ def document(records):
 
 class PreviewLifecycleTests(unittest.TestCase):
     def test_business_templates_keep_expiry_and_registry_limits(self):
-        for template in ['grafica', 'locacao', 'recepcao']:
+        for template in ['grafica', 'locacao', 'recepcao', 'pedra', 'oficina', 'impressoras']:
             with self.subTest(template=template):
                 html=document([dict(sample(),template=template)])
                 self.assertEqual(cleanup(html,BASE+dt.timedelta(hours=71))[1],0)
