@@ -13,6 +13,7 @@ START = '<script type="application/json" id="samples-data">'
 END = '</script>'
 MAX_HOURS = 72
 MAX_SAMPLES = 20
+TEMPLATES = {'uniformes', 'servicos', 'grafica', 'locacao', 'recepcao'}
 
 def instant(value):
     value = dt.datetime.fromisoformat(value.replace('Z', '+00:00'))
@@ -25,7 +26,7 @@ def valid_sample(sample):
         raise ValueError('Unexpected sample fields')
     if not re.fullmatch(r'[a-z0-9-]{4,64}', sample['id']):
         raise ValueError('Invalid sample id')
-    if sample['template'] not in {'uniformes', 'servicos'} or not isinstance(sample['title'], str) or not 1 <= len(sample['title']) <= 90:
+    if sample['template'] not in TEMPLATES or not isinstance(sample['title'], str) or not 1 <= len(sample['title']) <= 90:
         raise ValueError('Invalid sample template/title')
     created, expires = instant(sample['created_at']), instant(sample['expires_at'])
     if not dt.timedelta(0) < expires-created <= dt.timedelta(hours=MAX_HOURS):
@@ -88,7 +89,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('action', choices=['check', 'clean', 'build', 'add'])
     p.add_argument('--id'); p.add_argument('--title')
-    p.add_argument('--template', choices=['uniformes', 'servicos'], default='uniformes')
+    p.add_argument('--template', choices=sorted(TEMPLATES), default='uniformes')
     p.add_argument('--hours', type=int, default=72)
     a=p.parse_args()
     path=ROOT/'previas.html'
