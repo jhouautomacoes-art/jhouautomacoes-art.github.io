@@ -2,7 +2,7 @@
 
 As prévias ativas podem registrar uma visualização por carregamento no Umami Cloud. O painel mostra a rota sintética `/previas/<id-da-amostra>` para separar as amostras sem acrescentar e-mail, nome ou token de destinatário ao link. O código só carrega o tracker em `jhouautomacoes-art.github.io`, para um ID válido, antes da expiração de 72 horas e respeitando Do Not Track e Global Privacy Control. A página informa sobre a contagem. Não há pixel no e-mail, `identify()`, evento de clique ou coleta de campos preenchidos.
 
-**Estado inicial: desativado.** É preciso criar ou acessar uma conta Umami Cloud gratuita do operador, adicionar o site `jhouautomacoes-art.github.io` e copiar o *Website ID* público (UUID) exibido no código de rastreamento. Nunca usar API key, token ou senha. Depois:
+**Estado atual: ativado em 15/10/2026.** O site `jhouautomacoes-art.github.io` foi adicionado ao Umami Cloud da conta do operador e o *Website ID* público está em `previas.html`. A visita inicial de teste foi confirmada na rota `/previas/agiair-servicos-20261014`; ela não é tráfego de um prospect. Para configurar outro site, use o novo UUID público. Nunca use API key, token ou senha:
 
 ```text
 python scripts/configure_analytics.py set --website-id UUID_DO_SITE
