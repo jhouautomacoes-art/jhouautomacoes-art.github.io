@@ -27,7 +27,7 @@ jobs:
         with:
           ref: main
       - name: Validar regras das demonstracoes
-        run: node --test tests/test_service_model.cjs tests/test_business_model.cjs tests/conceitos.test.js
+        run: node --test tests/test_service_model.cjs tests/test_business_model.cjs tests/conceitos.test.js tests/test_preview_analytics.cjs
       - name: Validar e remover amostras vencidas
         id: clean
         env:
