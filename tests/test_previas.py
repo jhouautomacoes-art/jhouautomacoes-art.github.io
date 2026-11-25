@@ -86,4 +86,27 @@ class PreviewLifecycleTests(unittest.TestCase):
             self.assertFalse((root/'_site/scripts').exists())
             self.assertFalse((root/'_site/untracked.html').exists())
 
+    def test_build_removes_expired_website_and_its_assets(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            subprocess.run(['git', 'init', '--quiet', folder], check=True)
+            live = dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=1)
+            entry = dict(sample(), template='site-estatico', created_at=live.isoformat(),
+                         expires_at=(live + dt.timedelta(hours=72)).isoformat())
+            registry = root/'previas.html'
+            registry.write_text(document([entry]), encoding='utf-8')
+            page = root/'sites-temporarios/exemplo-123/index.html'
+            page.parent.mkdir(parents=True)
+            page.write_text('Temporary example', encoding='utf-8')
+            (page.parent/'example.css').write_text('body {}', encoding='utf-8')
+            subprocess.run(['git', 'add', '.'], cwd=root, check=True)
+            build_site(root)
+            published = root/'_site/sites-temporarios/exemplo-123'
+            self.assertTrue((published/'index.html').is_file())
+            self.assertTrue((published/'example.css').is_file())
+            registry.write_text(document([dict(sample(), template='site-estatico')]), encoding='utf-8')
+            build_site(root)
+            self.assertFalse(published.exists())
+            self.assertTrue((root/'_site/previas.html').is_file())
+
 if __name__=='__main__':unittest.main()
