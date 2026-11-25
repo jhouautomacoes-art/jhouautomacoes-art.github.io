@@ -13,7 +13,7 @@ START = '<script type="application/json" id="samples-data">'
 END = '</script>'
 MAX_HOURS = 72
 MAX_SAMPLES = 20
-TEMPLATES = {'uniformes', 'servicos', 'grafica', 'locacao', 'recepcao', 'pedra', 'oficina', 'impressoras'}
+TEMPLATES = {'uniformes', 'servicos', 'grafica', 'locacao', 'recepcao', 'pedra', 'oficina', 'impressoras', 'site-estatico'}
 
 def instant(value):
     value = dt.datetime.fromisoformat(value.replace('Z', '+00:00'))
@@ -67,11 +67,27 @@ def build_site(root):
     if not destination.resolve().is_relative_to(root):
         raise ValueError('Build output outside repository')
     destination.mkdir(exist_ok=True)
+    registry = root/'previas.html'
+    active_site_ids = set()
+    if registry.is_file():
+        _, samples, _ = split_registry(registry.read_text(encoding='utf-8'))
+        at = dt.datetime.now(dt.timezone.utc)
+        active_site_ids = {sample['id'] for sample in samples
+                           if sample['template'] == 'site-estatico'
+                           and instant(sample['created_at']) <= at < instant(sample['expires_at'])}
+    temporary_output = destination/'sites-temporarios'
+    if temporary_output.exists():
+        if temporary_output.is_symlink() or not temporary_output.resolve().is_relative_to(destination.resolve()):
+            raise ValueError('Temporary site output outside destination')
+        shutil.rmtree(temporary_output)
     names = subprocess.check_output(['git', 'ls-files', '-z'], cwd=root).decode().split('\0')
     allowed = {'.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.woff', '.woff2'}
     count = 0
     for name in names:
         if not name or name.split('/')[0] in {'scripts', 'tests', '.github', '_site'}:
+            continue
+        parts = name.split('/')
+        if parts[0] == 'sites-temporarios' and (len(parts) < 3 or parts[1] not in active_site_ids):
             continue
         source = root/name
         if source.suffix.lower() not in allowed or source.is_symlink():
@@ -91,6 +107,7 @@ def main():
     p.add_argument('--id'); p.add_argument('--title')
     p.add_argument('--template', choices=sorted(TEMPLATES), default='uniformes')
     p.add_argument('--hours', type=int, default=72)
+    p.add_argument('--created-at', help='Horário UTC compartilhado com a publicação externa')
     a=p.parse_args()
     path=ROOT/'previas.html'
     html=path.read_text(encoding='utf-8')
@@ -108,9 +125,12 @@ def main():
         if any(s['id']==a.id for s in samples):
             raise ValueError('Never overwrite/reuse an existing link id')
         if len(active)>=MAX_SAMPLES: raise ValueError('Sample limit reached')
+        created_at = instant(a.created_at) if a.created_at else current
+        if not created_at <= current < created_at + dt.timedelta(hours=a.hours):
+            raise ValueError('Sample must be active when added')
         sample={'id':a.id,'title':a.title,'template':a.template,
-                'created_at':current.isoformat(timespec='seconds'),
-                'expires_at':(current+dt.timedelta(hours=a.hours)).isoformat(timespec='seconds')}
+                'created_at':created_at.isoformat(timespec='seconds'),
+                'expires_at':(created_at+dt.timedelta(hours=a.hours)).isoformat(timespec='seconds')}
         valid_sample(sample); active.append(sample); changed=update_registry(changed,active)
     if changed!=html:
         temporary=path.with_suffix('.html.tmp')
