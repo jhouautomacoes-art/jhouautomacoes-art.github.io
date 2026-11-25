@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="conceitos.css?v=20261014-1">
 </head>
 <body>
-<script type="application/json" id="samples-data">[]</script>
+<script type="application/json" id="samples-data">[{"id":"sites-comerciais-20261125","title":"Prévias de sites comerciais","template":"site-estatico","created_at":"2026-11-25T18:34:07+00:00","expires_at":"2026-11-28T18:34:07+00:00"}]</script>
 <header><img src="jhou-logo.png" alt="Jhou Automações"><span>Ideia ilustrativa<br>Amostra temporária</span></header>
 <main id="expired" hidden><div class="eyebrow">Jhou Automações / Prévia temporária</div><h1>Esta prévia foi encerrada.</h1><p>As amostras ficam disponíveis por até 72 horas. Este endereço não apresenta mais uma demonstração ativa.</p><p><a href="https://jhouautomacoes-art.github.io/">Conheça o trabalho de Jhonata ↗</a></p><div class="contact-line"><span>Quer conversar sobre esta ideia ou outra necessidade?</span><a href="https://wa.me/5551984170069" target="_blank" rel="noopener">Fale com Jhonata ↗</a></div></main>
 <main id="demo" hidden><section class="intro"><div class="eyebrow">Do pedido ao orçamento</div><h1>Um pedido claro.<br><em>Uma conversa mais simples.</em></h1><p>Peças, cores, tamanhos e personalização no mesmo resumo. Um exemplo de como organizar a solicitação antes de cotar.</p></section>
@@ -83,7 +83,12 @@ try {
  const matches=registry.filter(s=>s.id===requested);
  if(matches.length!==1)throw Error('Unknown sample');
  const sample=matches[0],created=Date.parse(sample.created_at),expires=Date.parse(sample.expires_at);
- if(!['uniformes','servicos','grafica','locacao','recepcao','pedra','oficina','impressoras'].includes(sample.template)||!Number.isFinite(created)||!Number.isFinite(expires)||expires<=created||expires-created>72*3600000||wallNow()<created||wallNow()>=expires)throw Error('Unavailable');
+ if(!['uniformes','servicos','grafica','locacao','recepcao','pedra','oficina','impressoras','site-estatico'].includes(sample.template)||!Number.isFinite(created)||!Number.isFinite(expires)||expires<=created||expires-created>72*3600000||wallNow()<created||wallNow()>=expires)throw Error('Unavailable');
+ if(sample.template==='site-estatico'){
+  if(!/^[a-z0-9-]{4,64}$/.test(sample.id))throw Error('Invalid site id');
+  location.replace('sites-temporarios/'+sample.id+'/arquitetura/');
+  throw Error('Opening website sample');
+ }
  activeSample=sample;deadlineMs=Math.min(expires,created+72*3600000);
  document.getElementById('sample-title').textContent=sample.title;
  const date=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'}).format(deadlineMs);
