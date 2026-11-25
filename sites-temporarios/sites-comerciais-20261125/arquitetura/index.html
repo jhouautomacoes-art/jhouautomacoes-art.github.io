@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Morada Estúdio · Conceito de site</title>
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="../assets/obra.css">
+  <script src="../assets/shared.js" defer></script>
+  <script src="../assets/obra.js" defer></script>
+</head>
+<body>
+  <div class="preview-strip">Marca e imagens fictícias. Prévia informativa da <a href="https://jhouautomacoes-art.github.io/">Jhou Automações</a>, válida até <time datetime="2026-11-28T18:34:07.086Z">28/11/2026, 15:34 (Brasília)</time>.</div>
+  <noscript><p>Ative o JavaScript para abrir esta demonstração.</p></noscript>
+  <div id="demo" hidden>
+    <header class="top wrap">
+      <a class="brand" href="#inicio"><i aria-hidden="true">M</i> Morada Estúdio</a>
+      <nav aria-label="Principal"><a class="nav-secondary" href="#servicos">Serviços</a><a href="#briefing">Planejar minha obra ↘</a></nav>
+    </header>
+    <main id="inicio">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Arquitetura e execução</p>
+          <h1 id="hero-title">Sua obra começa no papel.</h1>
+          <p>Do primeiro desenho ao acompanhamento da obra, veja como organizar seu projeto e dar o próximo passo.</p>
+          <a class="action" href="#briefing">Montar pedido de orçamento <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure>
+          <img src="../assets/obra.webp" width="1440" height="960" alt="Casa térrea contemporânea com jardim tropical e pátio interno" fetchpriority="high">
+          <figcaption>Residência ilustrativa</figcaption>
+        </figure>
+      </section>
+      <section class="services wrap" id="servicos" aria-label="Serviços">
+        <article><h2>Projeto</h2><p>Distribuição dos ambientes, materiais e decisões de execução.</p></article>
+        <article><h2>Reforma</h2><p>Mapeamento das prioridades do imóvel para conversar sobre escopo.</p></article>
+        <article><h2>Acompanhamento</h2><p>Registro das etapas e alinhamento de pendências ao longo da obra.</p></article>
+      </section>
+      <section class="brief wrap" id="briefing">
+        <div class="brief-copy"><p class="eyebrow">Pedido de orçamento</p><h2>Conte o que você quer construir.</h2><p>Experimente organizar um briefing com dados de exemplo. O resumo fica nesta página e pode ser baixado como texto.</p></div>
+        <div class="form-shell">
+          <ol class="progress" aria-label="Etapas"><li aria-current="step">Serviço</li><li>Dimensões</li><li>Revisão</li></ol>
+          <form id="brief" novalidate>
+            <fieldset data-step="0">
+              <legend tabindex="-1">Qual serviço você procura?</legend>
+              <label class="option"><input type="radio" name="service" value="Projeto arquitetônico" required> Projeto arquitetônico</label>
+              <label class="option"><input type="radio" name="service" value="Reforma" required> Reforma</label>
+              <label class="option"><input type="radio" name="service" value="Acompanhamento de obra" required> Acompanhamento de obra</label>
+            </fieldset>
+            <fieldset data-step="1" hidden disabled>
+              <legend tabindex="-1">Qual é o ponto de partida?</legend>
+              <div class="form-grid">
+                <label>Tipo de imóvel<select name="property" required><option value="">Selecione</option><option>Casa</option><option>Apartamento</option><option>Espaço comercial</option></select></label>
+                <label>Área aproximada em m²<input name="area" type="number" min="1" max="10000" step="1" required placeholder="Ex.: 80"></label>
+              </div>
+            </fieldset>
+            <fieldset data-step="2" hidden disabled>
+              <legend tabindex="-1">Resumo do pedido</legend><pre id="summary"></pre>
+            </fieldset>
+            <div class="buttons"><button type="button" class="action secondary" id="back" hidden>Voltar</button><button type="submit" class="action" id="next">Continuar →</button><button type="button" class="action" id="download" hidden>Baixar briefing ↓</button></div>
+            <p id="status" class="status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer><div class="wrap"><p>Conceito independente. O fluxo real e o canal de recebimento seriam definidos com o negócio.</p><a href="https://jhouautomacoes-art.github.io/#contato">Conversar com Jhonata ↗</a></div></footer>
+  </div>
+  <main class="expiration" id="expiration" hidden><h1>Esta prévia expirou.</h1><a href="https://jhouautomacoes-art.github.io/">Conhecer a Jhou Automações ↗</a></main>
+</body>
+</html>
