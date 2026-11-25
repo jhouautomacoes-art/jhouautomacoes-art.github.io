@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Forja Técnica · Conceito de site</title>
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="../assets/cozinha.css">
+  <script src="../assets/fuse.js" defer></script>
+  <script src="../assets/shared.js" defer></script>
+  <script src="../assets/cozinha.js" defer></script>
+</head>
+<body>
+  <div class="preview-strip">Marca, imagens e equipamentos ilustrativos. Prévia da <a href="https://jhouautomacoes-art.github.io/">Jhou Automações</a>, válida até <time datetime="2026-11-28T18:34:07.086Z">28/11/2026, 15:34 (Brasília)</time>.</div>
+  <noscript><p>Ative o JavaScript para abrir esta demonstração.</p></noscript>
+  <div id="demo" hidden>
+    <header class="top wrap">
+      <a class="brand" href="#inicio"><i aria-hidden="true">F</i> Forja Técnica</a>
+      <nav aria-label="Principal"><a class="nav-secondary" href="#catalogo">Equipamentos</a><a href="#cotacao">Lista de cotação ↘</a></nav>
+    </header>
+    <main id="inicio">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy"><p class="eyebrow">Cozinhas profissionais</p><h1 id="hero-title">Do preparo à expedição.</h1><p>Encontre os equipamentos por etapa de operação e reúna os itens para cotar com a equipe comercial.</p><a class="action" href="#catalogo">Explorar catálogo ↓</a></div>
+        <figure><img src="../assets/cozinha.webp" width="1440" height="960" alt="Linha de preparo profissional em aço escovado, com iluminação quente" fetchpriority="high"><figcaption>Cozinha ilustrativa</figcaption></figure>
+      </section>
+      <section class="catalog wrap" id="catalogo">
+        <h2>Monte sua lista.</h2><p class="intro">Teste a busca, selecione equipamentos e ajuste as quantidades. A lista pode ser baixada para conferência.</p>
+        <div class="layout">
+          <div>
+            <div class="toolbar">
+              <label for="search">Buscar equipamento<input type="search" id="search" placeholder="Ex.: forno ou refrigeração" autocomplete="off"></label>
+              <div class="filters" aria-label="Filtrar categoria">
+                <button type="button" data-filter="Todas" aria-pressed="true">Todas</button>
+                <button type="button" data-filter="Cocção" aria-pressed="false">Cocção</button>
+                <button type="button" data-filter="Refrigeração" aria-pressed="false">Refrigeração</button>
+                <button type="button" data-filter="Preparo" aria-pressed="false">Preparo</button>
+              </div>
+              <p class="status" role="status" id="found"></p>
+            </div>
+            <div class="items" id="items"></div>
+          </div>
+          <aside class="quote" id="cotacao"><h2>Lista de cotação</h2><p id="count" aria-live="polite">0 equipamentos</p><ul id="lines"></ul><button class="action" type="button" id="download" disabled>Baixar lista ↓</button><p id="status" class="status" role="status"></p></aside>
+        </div>
+      </section>
+    </main>
+    <footer><div class="wrap"><p>Catálogo demonstrativo. A lista fica nesta página. Preços, estoque e integração dependeriam do escopo real.</p><a href="https://jhouautomacoes-art.github.io/#contato">Conversar com Jhonata ↗</a></div></footer>
+  </div>
+  <main class="expiration" id="expiration" hidden><h1>Esta prévia expirou.</h1><a href="https://jhouautomacoes-art.github.io/">Conhecer a Jhou Automações ↗</a></main>
+</body>
+</html>
